@@ -1,37 +1,8 @@
 ### Secure & Monitored Three-Server Web Infrastructure for www.foobar.com
 
 #### **Infrastructure Diagram**
-```mermaid
-graph TD
-    U[User] -->|HTTPS: www.foobar.com| LB[HAProxy Load Balancer<br>SSL Termination]
-    LB -->|HTTPS| FW1[Firewall 1]
-    LB -->|HTTPS| FW2[Firewall 2]
-    LB -->|HTTPS| FW3[Firewall 3]
-    FW1 -->|Filtered Traffic| WS1[Web Server 1<br>Nginx]
-    FW2 -->|Filtered Traffic| WS2[Web Server 2<br>Nginx]
-    FW3 -->|Filtered Traffic| WS3[Web Server 3<br>Nginx]
-    WS1 -->|App Logic| AS1[App Server 1]
-    WS2 -->|App Logic| AS2[App Server 2]
-    WS3 -->|App Logic| AS3[App Server 3]
-    AS1 -->|Read Queries| DB_REPL1[(DB Replica)]
-    AS1 -->|Write Queries| DB_PRIMARY[(DB Primary)]
-    AS2 -->|Read Queries| DB_REPL1
-    AS2 -->|Write Queries| DB_PRIMARY
-    AS3 -->|Read Queries| DB_REPL1
-    AS3 -->|Write Queries| DB_PRIMARY
-    
-    MON[Monitoring Server<br>e.g., Sumologic] -->|Collects Data| MC1[Monitoring Client]
-    MON -->|Collects Data| MC2[Monitoring Client]
-    MON -->|Collects Data| MC3[Monitoring Client]
-    WS1 --> MC1
-    WS2 --> MC2
-    WS3 --> MC3
-    AS1 --> MC1
-    AS2 --> MC2
-    AS3 --> MC3
-    DB_PRIMARY --> MC1
-    DB_REPL1 --> MC2
-```
+
+<img width="3475" height="2802" alt="secure diagram" src="https://github.com/user-attachments/assets/3219270d-7e38-4594-b34b-8af260f57614" />
 
 ---
 
@@ -72,12 +43,8 @@ graph TD
    | **Data Collection**    | Clients push metrics to Sumologic every 10s via:<br> - Agent (e.g., Telegraf)<br> - API integrations<br> - Log scraping |
    | **Metrics Tracked**    | CPU/RAM usage, response times, error rates, DB query latency                |
    | **Web Server QPS Monitoring** | |
-   ```mermaid
-   graph LR
-     A[1. Enable Nginx stub_status] --> B[2. Collect metrics via Telegraf]
-     B --> C[3. Calculate: requests/sec = (total_requests - prev_requests) / interval]
-     C --> D[4. Visualize in Grafana dashboard]
-   ```
+
+<img width="2053" height="1350" alt="monitoring system" src="https://github.com/user-attachments/assets/4a08c04d-723f-404c-b97e-86cde2752b40" />
 
 ---
 
