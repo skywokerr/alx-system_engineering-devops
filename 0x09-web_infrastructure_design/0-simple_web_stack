@@ -1,5 +1,3 @@
-Here's a clearer, more structured version of your infrastructure overview:
-
 ### Infrastructure Components
 1. **Server**  
    - Single physical/virtual machine hosting all components  
