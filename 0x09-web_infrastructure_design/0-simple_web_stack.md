@@ -1,5 +1,6 @@
 # Simple Web Infrastructure Design
 
+<img width="522" height="821" alt="0-simple_web_stack_diagram" src="https://github.com/user-attachments/assets/3fbc3de4-56c6-48d1-97b7-6fcb4104ea84" />
 
 
 ## Infrastructure Components
