@@ -43,12 +43,8 @@
    | **Data Collection**    | Clients push metrics to Sumologic every 10s via:<br> - Agent (e.g., Telegraf)<br> - API integrations<br> - Log scraping |
    | **Metrics Tracked**    | CPU/RAM usage, response times, error rates, DB query latency                |
    | **Web Server QPS Monitoring** | |
-   ```mermaid
-   graph LR
-     A[1. Enable Nginx stub_status] --> B[2. Collect metrics via Telegraf]
-     B --> C[3. Calculate: requests/sec = (total_requests - prev_requests) / interval]
-     C --> D[4. Visualize in Grafana dashboard]
-   ```
+
+<img width="2053" height="1350" alt="monitoring system" src="https://github.com/user-attachments/assets/4a08c04d-723f-404c-b97e-86cde2752b40" />
 
 ---
 
