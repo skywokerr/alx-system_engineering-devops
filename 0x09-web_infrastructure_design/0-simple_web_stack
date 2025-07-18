@@ -23,27 +23,5 @@
    - Central data repository  
    - Manages user accounts, content, and application state  
 
----
 
-### System Workflow  
-```mermaid
-graph LR
-    User[User] -->|www.foobar.com| DNS[DNS]
-    DNS -->|8.8.8.8| Nginx[Nginx]
-    Nginx -->|Static Files| User
-    Nginx -->|Dynamic Requests| App[Application Server]
-    App --> Database[(MySQL)]
-```
-
----
-
-### Critical Infrastructure Issues  
-| Issue | Impact |  
-|-------|--------|  
-| **Single Point of Failure** | Entire system fails if server crashes |  
-| **Maintenance Downtime** | Service interruptions during updates |  
-| **Vertical Scaling Limit** | Cannot handle traffic spikes (no load balancing) |  
-| **Security Exposure** | No firewall/HTTPS; shared resource vulnerabilities |  
-
----
 
